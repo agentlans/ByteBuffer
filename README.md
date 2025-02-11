@@ -6,8 +6,8 @@ ByteBuffer is a C++ class that provides a flexible and efficient way to handle b
 
 ## Features
 
-- Supports various input types including ByteSequence concepts, std::string, and C-style strings
-- Provides easy conversion to and from std::string
+- Supports various input types including `ByteSequence` concepts, `std::string`, and C-style strings
+- Provides easy conversion to and from `std::string`
 - Allows access to individual bytes using array subscript operator
 - Supports resizing and capacity management
 - Offers hex string representation of the byte data
@@ -22,27 +22,25 @@ ByteBuffer is a C++ class that provides a flexible and efficient way to handle b
 
 ### Including the Header
 
-```
+```c++
 #include "ByteBuffer.hpp"
 ```
 
 ### Creating a ByteBuffer
 
-```
+```c++
 // From a string
 ByteBuffer bb1("Hello, World!");
 
 // From a byte array
 std::byte arr[] = {std::byte{0x48}, std::byte{0x65}, std::byte{0x6C},
-                   std::byte{0x6C}, std::byte{0x6F}
-                  };
+                   std::byte{0x6C}, std::byte{0x6F}};
 ByteBuffer bb2(arr, sizeof(arr));
 
 // From a vector of bytes
 std::vector<std::byte> vec = {std::byte{0x57}, std::byte{0x6F},
                               std::byte{0x72}, std::byte{0x6C},
-                              std::byte{0x64}
-                             };
+                              std::byte{0x64}};
 ByteBuffer bb3(vec);
 
 std::cout << bb3;
@@ -50,7 +48,7 @@ std::cout << bb3;
 
 ### Accessing and Modifying Data
 
-```
+```c++
 ByteBuffer bb("Hello");
 std::byte b = bb[0];     // Access first byte
 bb[0] = std::byte{0x41}; // Modify first byte
@@ -62,7 +60,7 @@ std::cout << str << std::endl;
 
 ### Using with Streams
 
-```
+```c++
 ByteBuffer bb(10); // Set up a buffer with 10 bytes
 std::cin >> bb;    // Read from input stream until the buffer is full
 std::cout << bb // Write to output stream
@@ -70,9 +68,9 @@ std::cout << bb // Write to output stream
 
 ### Utility Methods
 
-```
+```c++
 ByteBuffer bb("Hello, World!");
-std::cout << bb.hex();  // Print hexadecimal representation
+std::cout << bb.hex();  // Print hexadecimal representation like 48656c6c6f2c20576f726c6421
 std::cout << bb.size(); // Print size of the buffer
 ```
 
