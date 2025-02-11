@@ -29,14 +29,16 @@ public:
 
   explicit ByteBuffer(const std::string &str);
 
+  // Construct from C style array
+  template <std::size_t N>
+  ByteBuffer(const char (&s)[N]);
+
   template <Byte B> ByteBuffer(const B *cstr, std::size_t length);
 
   ByteBuffer(std::size_t length);
 
   // Assignment operators
   ByteBuffer &operator=(const std::string &str);
-  ByteBuffer &operator=(const ByteBuffer &) = default;
-  ByteBuffer &operator=(ByteBuffer &&) noexcept = default;
 
   template <ByteSequence S> ByteBuffer &operator=(const S &s);
 

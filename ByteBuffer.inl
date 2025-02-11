@@ -10,6 +10,9 @@ ByteBuffer::ByteBuffer(const B *cstr, std::size_t length)
     : data_(reinterpret_cast<const std::byte *>(cstr),
             reinterpret_cast<const std::byte *>(cstr) + length) {}
 
+template <std::size_t N> 
+ByteBuffer::ByteBuffer(const char (&s)[N]) : ByteBuffer(s, N) {}
+
 template <ByteSequence S> ByteBuffer &ByteBuffer::operator=(const S &s) {
   return assign(s.data(), s.size());
 }
